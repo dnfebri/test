@@ -6,19 +6,12 @@
 # Add leading 0 number
 # ex: 5 => 0005
 private function convertNumber($number) {
-    if (strlen($number) === 1) {
-        $number = '000' + $number;
-    }
-
-    if (strlen($number) === 2) {
-        $number = '00' + $number;
-    }
-
-    if (strlen($number) === 3) {
-        $number = '0' + $number;
-    }
-
-    return $number;
+    for ($i = 1; $i <= strlen($number); $i++) {
+      if (strlen($number) === $i) {
+         $number = sprintf("%04d", $number);
+         return $number;
+      }
+   }
 }
 
 convertNumber(5);
